@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import Footer from './Footer';
+
+
+
 
 const App = () => {
 
@@ -11,22 +15,14 @@ const App = () => {
       {/* <div className='bg-black opacity-25 w-full h-full absolute z-30'></div> */}
       <div className='w-full h-full absolute z-20'>
         <div className='relative flex flex-col justify-between w-full h-full'>
-          <div className=' border basis-1/12 '>1</div>
-          <div className='border flex basis-10/12'>
-            <div className='relative top-28 flex flex-col m-auto w-3/5 h-3/6 text-white justify-between '>
-              <div className='flex flex-col'>
-                <span className='text-[9.5rem] leading-none  font-medium text-center tracking-tight '>08:03</span>
-                <span className=' text-5xl font-medium text-center tracking-tight'>Good morning, Faiz Ma'ruf.</span>
-              </div>
-              <div className='flex flex-col'>
-                <span className='text-3xl font-medium text-center'>What is your main focus today?</span>
-                <div class="relative flex py-5 items-center">
-                  <div class="flex-grow border-t border-b-2 border-white"></div>
-                </div>
-              </div>
+          <div className='basis-1/12 '>1</div>
+          <div className='flex basis-10/12 relative'>
+            <div className='flex flex-col justify-between w-full h-2/3 m-auto absolute bottom-0 '>
+              <div className='h-full w-full bg-black '></div>
+              <div className='h-full w-full bg-slate-500 '></div>
             </div>
           </div>
-          <div className=' border basis-1/12'>3</div>
+          <Footer />
         </div>
       </div>
       <img
