@@ -26,8 +26,8 @@ const App = () => {
         </div>
       </div>
       <img
-        src='https://i.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU'
-        className='object-cover w-full h-full absolute z-10'
+        src='https://fastly.picsum.photos/id/12/2500/1667.jpg?hmac=Pe3284luVre9ZqNzv1jMFpLihFI6lwq7TPgMSsNXw2w'
+        className='object-cover w-full h-full absolute z-10 overflow-hidden'
       />
     </div>
   );

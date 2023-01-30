@@ -9,7 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 *{
-  border: 1px solid white;
+  /* border: 1px solid yellow; */
 }
 
 code {
