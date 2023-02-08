@@ -1,6 +1,11 @@
 import { React, useEffect } from 'react'
 import axios from 'axios';
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import RedoIcon from '@mui/icons-material/Redo';
+import { useState } from 'react';
+// import proxy from 'http-proxy-middleware'
+// app.use('/api/**', proxy({ target: "http://localhost:3000" }));
 
 
 
@@ -82,9 +87,18 @@ import axios from 'axios';
 // getQuoteTweets();
 
 const getQoute = () => {
-    const bearerToken = "";
-    const headers = { Authorization: `Bearer ${bearerToken}` };
-    axios.get('https://api.twitter.com/2/tweets/300/quote_tweets?expansions=author_id&user.fields=created_at', { headers })
+    const bearerToken = "AAAAAAAAAAAAAAAAAAAAAJsdlgEAAAAA969Umh8DriWHWubi6YRDAsPOFvY%3DMiJ2XfbTzLdlLGSDC8uhagom3LS5FIrdI2O2RK9pa8BrzFjBZH";
+    const headers = {
+        Authorization: `Bearer ${bearerToken}`,
+    };
+    const config = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*',
+        'Access-Control-Allow-Headers': '*',
+        "proxy": "http://localhost:3000",
+    }
+
+    axios.get('https://api.twitter.com/2/tweets/300/quote_tweets?expansions=author_id&user.fields=created_at', { config, headers })
         .then(response => {
             console.log(response);
         })
@@ -94,15 +108,48 @@ const getQoute = () => {
 }
 
 export const Qoute = (props) => {
+    const [state, setState] = useState({
+        isHoverData: true,
+    })
 
     useEffect(() => {
         // console.log('testing amat')
-        getQoute()//
+        // getQoute()//
     }, []);
 
-
+    // console.log('testing hover', state.isHoverData)
     return (
-        <div>Qoutebggttt</div>
+        <div className='flex w-full flex-col'>
+            <span
+                className='text-white m-auto text-lg text-center opacity-90'
+                onMouseOver={() => {
+                    setState(prevState => ({
+                        isHoverData: !prevState.isHoverData
+                    }));
+                }}
+                onMouseOut={() => {
+                    setState(prevState => ({
+                        isHoverData: !prevState.isHoverData
+                    }));
+                }}
+            >
+                if you want go to fast go alone, if you want go to far go to together
+            </span>
+            <div className={`m-auto ${state.isHoverData ? "hidden" : ""}`}>
+                <span className='text-white text-sm text-center opacity-90'>
+                    Faiz Alauddin Ma'ruf
+                    <FavoriteBorderIcon
+                        style={{ color: 'white', opacity: '0.9', fontSize: '0.97rem', marginLeft: '0.5rem' }}
+                    />
+                    <RedoIcon
+                        style={{ color: 'white', opacity: '0.9', fontSize: '1rem', marginLeft: '0.15rem' }}
+                    />
+                    <TwitterIcon
+                        style={{ color: 'white', opacity: '0.9', fontSize: '0.97rem', marginLeft: '0.2rem' }}
+                    />
+                </span>
+            </div>
+        </div>
     )
 }
 
