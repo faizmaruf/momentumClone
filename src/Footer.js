@@ -3,6 +3,7 @@ import Qoute from './Qoute';
 import { useState } from 'react';
 
 import SettingsIcon from '@mui/icons-material/Settings';
+import TodoList from './TodoList';
 
 const Footer = () => {
     const [state, setState] = useState({
@@ -38,7 +39,7 @@ const Footer = () => {
 
             </div>
             <div className='flex w-full absolute -top-7 md:static '><Qoute /></div>
-            <div className='flex w-64'>3</div>
+            <div className='flex w-64 justify-end'><TodoList /></div>
         </div>
     )
 }

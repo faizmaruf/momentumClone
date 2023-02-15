@@ -90,15 +90,15 @@ const getQoute = () => {
     const bearerToken = "AAAAAAAAAAAAAAAAAAAAAJsdlgEAAAAA969Umh8DriWHWubi6YRDAsPOFvY%3DMiJ2XfbTzLdlLGSDC8uhagom3LS5FIrdI2O2RK9pa8BrzFjBZH";
     const headers = {
         Authorization: `Bearer ${bearerToken}`,
+        
     };
-    const config = {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': '*',
-        'Access-Control-Allow-Headers': '*',
-        "proxy": "http://localhost:3000",
-    }
+    // const config = {
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Access-Control-Allow-Methods': '*',
+    //     'Access-Control-Allow-Headers': '*',
+    // }
 
-    axios.get('https://api.twitter.com/2/tweets/300/quote_tweets?expansions=author_id&user.fields=created_at', { config, headers })
+    axios.get('https://api.twitter.com/2/tweets/300/quote_tweets?expansions=author_id&user.fields=created_at', { headers })
         .then(response => {
             console.log(response);
         })
@@ -114,7 +114,10 @@ export const Qoute = (props) => {
 
     useEffect(() => {
         // console.log('testing amat')
-        // getQoute()//
+        getQoute()//
+        // fetch('https://api.twitter.com/2/tweets/300/quote_tweets?expansions=author_id&user.fields=created_at')
+        //     .then(response => response.json())
+
     }, []);
 
     // console.log('testing hover', state.isHoverData)
